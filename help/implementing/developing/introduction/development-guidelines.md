@@ -100,11 +100,20 @@ To change the log levels for Cloud environments, the Sling Logging OSGI configur
 **Activating the DEBUG Log Level**
 
 The default log level is INFO, that is, DEBUG messages are not logged.
-To activate DEBUG log level, set the
+To activate DEBUG log level, update the org.apache.sling.commons.log.level property to debug
 
-``` /libs/sling/config/org.apache.sling.commons.log.LogManager/org.apache.sling.commons.log.level ```
+The following is an example of the logging configurations
 
-property to debug. Do not leave the log at the DEBUG log level longer than necessary, as it generates a lot of logs.
+/apps/my-app/config/org.apache.sling.commons.log.LogManager.factory.config.cfg.json
+
+```
+{
+    "org.apache.sling.commons.log.names": ["com.example"],
+    "org.apache.sling.commons.log.level": "debug"
+}
+```
+
+Do not leave the log at the DEBUG log level longer than necessary, as it generates a lot of logs.
 A line in the debug file usually starts with DEBUG, and then provides the log level, the installer action and the log message. For example:
 
 ``` DEBUG 3 WebApp Panel: WebApp successfully deployed ```
